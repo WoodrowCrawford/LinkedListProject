@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>;
 template <typename T>
 
 //Node struct
@@ -49,6 +50,7 @@ private:
     Node<T>m_first;
     Node<T>m_last;
     int m_nodeCount;
+    int m_lenght;
 
 
 public:
@@ -91,11 +93,8 @@ template<typename T>
 inline Node<T>::Node()
 {
     Node* node;
-    node->data[0];
-    node->data[1];
-    node->data[2];
-    node->data[3];
-
+    new Node 1;
+    node->data  1;
 
 }
 
@@ -105,13 +104,8 @@ inline Node<T>::Node()
 template<typename T>
 inline Node<T>::Node(T value)
 {
-    Node* node;
-    node->data[0] = "John";
-    node->data[1] = "Danny";
-    node->data[2] = "Josa";
-    node->data[3] = "Mike";
-    
-
+   
+   
 }
 
 
@@ -120,7 +114,7 @@ inline Node<T>::Node(T value)
 template<typename T>
 inline Node<T>* Node<T>::next()
 {
-    return
+    return 0;
 }
 
 
@@ -129,7 +123,7 @@ inline Node<T>* Node<T>::next()
 template<typename T>
 inline Node<T>* Node<T>::previous()
 {
-    return NULL;
+    return 0;
 }
 
 
@@ -321,7 +315,7 @@ inline const void LinkedList<T>::print()
 template<typename T>
 inline const int LinkedList<T>::getLenght()
 {
-    return 0;
+    return  m_lenght;
 }
 
 
@@ -338,4 +332,7 @@ inline const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& otherL
 int main()
 {
     
+
+    
+
 }
