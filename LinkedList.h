@@ -47,8 +47,8 @@ template <typename T>
 class LinkedList
 {
 private:
-    Node<T>m_first;
-    Node<T>m_last;
+    Node<T>m_head;
+    Node<T>m_tail;
     int m_nodeCount;
     int m_lenght;
 
@@ -92,10 +92,42 @@ public:
 template<typename T>
 inline Node<T>::Node()
 {
-    Node* node;
-    new Node 1;
-    node->data  1;
+    Node* head;
+    Node* tail;
+    Node* n;
 
+    //Node #1
+    n = new Node;
+    n->data = 1;
+    n->previous = NULL;
+    head = n;
+    tail = n;
+
+
+    //Node #2
+    n = new Node;
+    n->data = 2;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+
+
+    //Node #3
+    n = new Node;
+    n->data = 3;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+
+
+    //Node #4
+    n = new Node;
+    n->data = 4;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+    tail->next = NULL;
+    
 }
 
 
@@ -114,7 +146,7 @@ inline Node<T>::Node(T value)
 template<typename T>
 inline Node<T>* Node<T>::next()
 {
-    return 0;
+    Node* next;
 }
 
 
@@ -123,7 +155,7 @@ inline Node<T>* Node<T>::next()
 template<typename T>
 inline Node<T>* Node<T>::previous()
 {
-    return 0;
+    Node* previous;
 }
 
 
