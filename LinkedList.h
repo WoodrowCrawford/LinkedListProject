@@ -92,12 +92,12 @@ public:
 template<typename T>
 inline Node<T>::Node()
 {
-    Node* head;
-    Node* tail;
-    Node* n;
+    Node<T>* head;
+    Node<T>* tail;
+    Node<T>* n;
 
     //Node #1
-    n = new Node;
+    n = new Node<T>;
     n->data = 1;
     n->previous = NULL;
     head = n;
@@ -105,7 +105,7 @@ inline Node<T>::Node()
 
 
     //Node #2
-    n = new Node;
+    n = new Node<T>;
     n->data = 2;
     n->previous = tail;
     tail->next = n;
@@ -113,7 +113,7 @@ inline Node<T>::Node()
 
 
     //Node #3
-    n = new Node;
+    n = new Node<T>;
     n->data = 3;
     n->previous = tail;
     tail->next = n;
@@ -121,13 +121,13 @@ inline Node<T>::Node()
 
 
     //Node #4
-    n = new Node;
+    n = new Node<T>;
     n->data = 4;
     n->previous = tail;
     tail->next = n;
     tail = n;
     tail->next = NULL;
-    
+
 }
 
 
@@ -137,7 +137,41 @@ template<typename T>
 inline Node<T>::Node(T value)
 {
    
-   
+    Node<T>* head;
+    Node<T>* tail;
+    Node<T>* n;
+
+    //Node #1
+    n = new Node<T>;
+    n->data = 1;
+    n->previous = NULL;
+    head = n;
+    tail = n;
+
+
+    //Node #2
+    n = new Node<T>;
+    n->data = 2;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+
+
+    //Node #3
+    n = new Node<T>;
+    n->data = 3;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+
+
+    //Node #4
+    n = new Node<T>;
+    n->data = 4;
+    n->previous = tail;
+    tail->next = n;
+    tail = n;
+    tail->next = NULL;
 }
 
 
@@ -146,7 +180,29 @@ inline Node<T>::Node(T value)
 template<typename T>
 inline Node<T>* Node<T>::next()
 {
-    Node* next;
+    Node<T>* node;
+
+    if (node->data = 1)
+    {
+        node->data = 2;
+    }
+
+    if (node->data = 2)
+    {
+        node->data = 3;
+    }
+
+
+    if (node->data = 3)
+    {
+        node->data = 4;
+    }
+
+    if (node->data = 4)
+    {
+        node->data = NULL;
+  
+    }
 }
 
 
@@ -155,7 +211,28 @@ inline Node<T>* Node<T>::next()
 template<typename T>
 inline Node<T>* Node<T>::previous()
 {
-    Node* previous;
+    Node<T>* node;
+
+    if (node->data = 1)
+    {
+        node->data = NULL;
+    }
+
+
+    if (node->data = 2)
+    {
+        node->data = 1;
+    }
+
+    if (node->data = 3)
+    {
+        node->data = 2;
+    }
+
+    if (node->data = 4)
+    {
+        node->data = 3;
+    }
 }
 
 
@@ -164,7 +241,8 @@ inline Node<T>* Node<T>::previous()
 template<typename T>
 inline T Node<T>::data()
 {
-    return T();
+    Node<T>* node;
+    node->data = 1;
 }
 
 //////////////////////////////////
@@ -175,11 +253,15 @@ inline T Node<T>::data()
 template<typename T>
 inline Iterator<T>::Iterator()
 {
+    Iterator<int>();
 }
 
 template<typename T>
 inline Iterator<T>::Iterator(Node<T>*)
 {
+    Iterator<T>Node<int>;
+    Node<T>* n;
+    
 }
 
 template<typename T>
@@ -202,7 +284,7 @@ template<typename T>
 inline LinkedList<T>::LinkedList()
 {
 
-
+    
 }
 
 template<typename T>
@@ -297,7 +379,6 @@ template<typename T>
 inline void LinkedList<T>::pushFront(const T& value)
 {
 
-
 }
 
 
@@ -316,8 +397,6 @@ inline void LinkedList<T>::pushBack(const T& value)
 template<typename T>
 inline void LinkedList<T>::sort()
 {
-
-
 
 }
 
@@ -338,7 +417,8 @@ inline void LinkedList<T>::initialize()
 template<typename T>
 inline const void LinkedList<T>::print()
 {
-    return void();
+   
+   
 }
 
 
@@ -361,10 +441,12 @@ inline const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& otherL
 /////////////////////////////////////////////
 
 
+
 int main()
 {
+    LinkedList<int>* list;
     
 
-    
+    list->begin;
 
 }
