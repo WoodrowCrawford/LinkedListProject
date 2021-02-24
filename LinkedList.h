@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>;
+#include <iostream>
 template <typename T>
 
 //Node struct
@@ -106,27 +106,27 @@ inline Node<T>::Node()
 
     //Node #2
     n = new Node<T>;
-    n->data = 2;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 2;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
 
 
     //Node #3
     n = new Node<T>;
-    n->data = 3;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 3;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
 
 
     //Node #4
     n = new Node<T>;
-    n->data = 4;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 4;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
-    tail->next = NULL;
+    tail->next() = NULL;
 
 }
 
@@ -143,35 +143,35 @@ inline Node<T>::Node(T value)
 
     //Node #1
     n = new Node<T>;
-    n->data = 1;
-    n->previous = NULL;
+    n->data() = 1;
+    n->previous() = NULL;
     head = n;
     tail = n;
 
 
     //Node #2
     n = new Node<T>;
-    n->data = 2;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 2;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
 
 
     //Node #3
     n = new Node<T>;
-    n->data = 3;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 3;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
 
 
     //Node #4
     n = new Node<T>;
-    n->data = 4;
-    n->previous = tail;
-    tail->next = n;
+    n->data() = 4;
+    n->previous() = tail;
+    tail->next() = n;
     tail = n;
-    tail->next = NULL;
+    tail->next() = NULL;
 }
 
 
@@ -182,25 +182,25 @@ inline Node<T>* Node<T>::next()
 {
     Node<T>* node;
 
-    if (node->data = 1)
+    if (node->data() = 1)
     {
-        node->data = 2;
+        node->data() = 2;
     }
 
-    if (node->data = 2)
+    if (node->data() = 2)
     {
-        node->data = 3;
+        node->data() = 3;
     }
 
 
-    if (node->data = 3)
+    if (node->data() = 3)
     {
-        node->data = 4;
+        node->data() = 4;
     }
 
-    if (node->data = 4)
+    if (node->data() = 4)
     {
-        node->data = NULL;
+        node->data() = NULL;
   
     }
 }
@@ -213,25 +213,25 @@ inline Node<T>* Node<T>::previous()
 {
     Node<T>* node;
 
-    if (node->data = 1)
+    if (node->data() = 1)
     {
-        node->data = NULL;
+        node->data() = NULL;
     }
 
 
-    if (node->data = 2)
+    if (node->data() = 2)
     {
-        node->data = 1;
+        node->data() = 1;
     }
 
-    if (node->data = 3)
+    if (node->data() = 3)
     {
-        node->data = 2;
+        node->data() = 2;
     }
 
-    if (node->data = 4)
+    if (node->data() = 4)
     {
-        node->data = 3;
+        node->data() = 3;
     }
 }
 
@@ -259,9 +259,8 @@ inline Iterator<T>::Iterator()
 template<typename T>
 inline Iterator<T>::Iterator(Node<T>*)
 {
-    Iterator<T>Node<int>;
-    Node<T>* n;
-    
+   Iterator<T>Node<int>;
+   Node<T>* n;
 }
 
 template<typename T>
@@ -447,6 +446,6 @@ int main()
     LinkedList<int>* list;
     
 
-    list->begin;
+    
 
 }
