@@ -303,13 +303,3 @@ inline const int LinkedList<T>::getLength()
 
 
 
-template<typename T>
-inline const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& otherLinkedList)
-{
-    // TODO: insert return statement here
-}
-
-/////////////////////////////////////////////
-
-
-
