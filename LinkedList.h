@@ -1,44 +1,7 @@
 #pragma once
+#include "Node.h"   
+#include "Iterator.h"
 #include <iostream>
-template <typename T>
-
-//Node struct
-struct Node
-{
-public:
-
-    Node();
-    Node(T value);
-    Node<T>* next();
-    Node<T>* previous();
-    T data();
-};
-
-///////////////////////////////
-
-
-//Iterator class
-template <typename T>
-class Iterator
-{
-private:
-
-    Node<T>*m_current;
-
-public:
-    Iterator();
-    Iterator(Node<T>*);
-
-    Iterator<T>operator++;
-    Iterator<T>operator--;
-    Iterator<T>operator*;
-
-    const bool operator==(const Iterator<T>& iter);
-    const bool operator!=(const Iterator<T>& iter);
-
-    
-
-};
 
 
 ///////////////////////////////
@@ -47,16 +10,16 @@ template <typename T>
 class LinkedList
 {
 private:
-    Node<T>m_head;
-    Node<T>m_tail;
-    int m_nodeCount;
-    int m_lenght;
+    Node<T* >m_head = nullptr;
+    Node<T>* m_tail = nullptr;
+    int m_nodeCount = 0;
+    
 
 
 public:
 
     LinkedList();
-    LinkedList(LinkedList<T>&);
+    LinkedList(const LinkedList<T>&);
     ~LinkedList();
     
     void destroy();
@@ -79,203 +42,11 @@ public:
 
     const void print();
 
-    const int getLenght();
+    const int getLength();
 
     const LinkedList<T>& operator=(const LinkedList<T>& otherLinkedList);
 
 };
-
-
-
-
-//Node class
-template<typename T>
-inline Node<T>::Node()
-{
-    Node<T>* head;
-    Node<T>* tail;
-    Node<T>* n;
-
-    //Node #1
-    n = new Node<T>;
-    n->data = 1;
-    n->previous = NULL;
-    head = n;
-    tail = n;
-
-
-    //Node #2
-    n = new Node<T>;
-    n->data() = 2;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-
-
-    //Node #3
-    n = new Node<T>;
-    n->data() = 3;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-
-
-    //Node #4
-    n = new Node<T>;
-    n->data() = 4;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-    tail->next() = NULL;
-
-}
-
-
-
-
-template<typename T>
-inline Node<T>::Node(T value)
-{
-   
-    Node<T>* head;
-    Node<T>* tail;
-    Node<T>* n;
-
-    //Node #1
-    n = new Node<T>;
-    n->data() = 1;
-    n->previous() = NULL;
-    head = n;
-    tail = n;
-
-
-    //Node #2
-    n = new Node<T>;
-    n->data() = 2;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-
-
-    //Node #3
-    n = new Node<T>;
-    n->data() = 3;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-
-
-    //Node #4
-    n = new Node<T>;
-    n->data() = 4;
-    n->previous() = tail;
-    tail->next() = n;
-    tail = n;
-    tail->next() = NULL;
-}
-
-
-
-
-template<typename T>
-inline Node<T>* Node<T>::next()
-{
-    Node<T>* node;
-
-    if (node->data() = 1)
-    {
-        node->data() = 2;
-    }
-
-    if (node->data() = 2)
-    {
-        node->data() = 3;
-    }
-
-
-    if (node->data() = 3)
-    {
-        node->data() = 4;
-    }
-
-    if (node->data() = 4)
-    {
-        node->data() = NULL;
-  
-    }
-}
-
-
-
-
-template<typename T>
-inline Node<T>* Node<T>::previous()
-{
-    Node<T>* node;
-
-    if (node->data() = 1)
-    {
-        node->data() = NULL;
-    }
-
-
-    if (node->data() = 2)
-    {
-        node->data() = 1;
-    }
-
-    if (node->data() = 3)
-    {
-        node->data() = 2;
-    }
-
-    if (node->data() = 4)
-    {
-        node->data() = 3;
-    }
-}
-
-
-
-
-template<typename T>
-inline T Node<T>::data()
-{
-    Node<T>* node;
-    node->data = 1;
-}
-
-//////////////////////////////////
-
-
-
-//Iterator class
-template<typename T>
-inline Iterator<T>::Iterator()
-{
-    Iterator<int>();
-}
-
-template<typename T>
-inline Iterator<T>::Iterator(Node<T>*)
-{
-   Iterator<T>Node<int>;
-   Node<T>* n;
-}
-
-template<typename T>
-inline const bool Iterator<T>::operator==(const Iterator<T>& iter)
-{
-    return false;
-}
-
-template<typename T>
-inline const bool Iterator<T>::operator!=(const Iterator<T>& iter)
-{
-    return false;
-}
-
-///////////////////////////////////
 
 
 //Linked List class
@@ -287,16 +58,18 @@ inline LinkedList<T>::LinkedList()
 }
 
 template<typename T>
-inline LinkedList<T>::LinkedList(LinkedList<T>&)
+inline LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-
-
+    m_head = other->m_head;
+    m_tail = other->m_tail;
+    m_nodeCount = other->m_nodeCount;
+    delete other;
 }
 
 template<typename T>
 inline LinkedList<T>::~LinkedList()
 {
-
+    destroy();
 
 }
 
@@ -305,7 +78,18 @@ inline LinkedList<T>::~LinkedList()
 template<typename T>
 inline void LinkedList<T>::destroy()
 {
+    Node<T>* current;
+    Node<T>* next;
+    current = m_head;
+    next = nullptr;
 
+    while (current != nullptr)
+    {
+        next = current->next;
+        delete current;
+        current = next;
+    }
+    m_nodeCount = 0;
 
 }
 
@@ -314,7 +98,7 @@ inline void LinkedList<T>::destroy()
 template<typename T>
 inline Iterator<T> LinkedList<T>::begin()
 {
-    return Iterator<T>();
+    return Iterator<T>(m_head);
 }
 
 
@@ -323,7 +107,8 @@ inline Iterator<T> LinkedList<T>::begin()
 template<typename T>
 inline Iterator<T> LinkedList<T>::end()
 {
-    return Iterator<T>();
+    
+    return Iterator<T>(m_tail);
 }
 
 
@@ -332,7 +117,34 @@ inline Iterator<T> LinkedList<T>::end()
 template<typename T>
 inline bool LinkedList<T>::insert(const T& value, int index)
 {
-    return false;
+    if (isEmpty() == true)
+    {
+        return false;
+    }
+    if (index >= m_nodeCount or index < 0)
+    {
+        return false;  
+    }
+    Node<T>* temp;
+    temp = new Node<T>(value);
+    Node<T>* current;
+    current = m_head;
+
+    for (int i = 0; i < index; i++)
+    {
+        if (current->next != nullptr)
+        {
+            current = current->next;
+        }
+        else return false;
+    }
+    current->previous->next = temp;
+    temp->previous = current->previous;
+    temp->next = current;
+    current->previous = temp;
+    m_nodeCount++;
+    delete temp;
+
 }
 
 
@@ -341,7 +153,46 @@ inline bool LinkedList<T>::insert(const T& value, int index)
 template<typename T>
 inline bool LinkedList<T>::remove(const T& value)
 {
-    return false;
+    Node<T>* iterator;
+    iterator = m_head;
+    if (m_head->info = value)
+    {
+        if (getLength() = 1)
+        {
+            m_head = nullptr;
+            m_tail = nullptr;
+            delete iterator;
+            m_nodeCount--;
+            return true;
+        }
+        m_head = iterator->next;
+        delete iterator;
+        m_nodeCount--; 
+        return true;
+
+    }
+    if (m_tail->info = value)
+    {
+        iterator = m_tail;
+        m_tail = iterator->previous;
+        delete iterator;
+        m_nodeCount--;
+        return true;
+
+    }
+    iterator = iterator->next;
+    while (iterator != nullptr)
+    {
+        if (iterator->info = value)
+        {
+            iterator->next->previous = iterator->previous;
+            iterator->previous->next = iterator->next;
+            delete iterator;
+            return true;
+        }
+        else
+            iterator = iterator->next;
+    }
 }
 
 
@@ -350,7 +201,7 @@ inline bool LinkedList<T>::remove(const T& value)
 template<typename T>
 inline bool LinkedList<T>::getData(Iterator<T>& Iter, int index)
 {
-    return false;
+    return ;
 }
 
 
@@ -359,7 +210,7 @@ inline bool LinkedList<T>::getData(Iterator<T>& Iter, int index)
 template<typename T>
 inline const bool LinkedList<T>::isEmpty()
 {
-    return false;
+    return m_nodeCount == 0;
 }
 
 
@@ -377,7 +228,9 @@ inline const bool LinkedList<T>::contains(const T& object)
 template<typename T>
 inline void LinkedList<T>::pushFront(const T& value)
 {
-
+    Node<T>* node = new Node<T>(value);
+    m_head->previous = node;
+    node->next = m_head;
 }
 
 
@@ -386,7 +239,9 @@ inline void LinkedList<T>::pushFront(const T& value)
 template<typename T>
 inline void LinkedList<T>::pushBack(const T& value)
 {
-
+    Node<T>* node = new Node<T>(value);
+    m_tail->next = node;
+    node->previous = m_tail;
 
 }
 
@@ -396,7 +251,22 @@ inline void LinkedList<T>::pushBack(const T& value)
 template<typename T>
 inline void LinkedList<T>::sort()
 {
+    for (int i = 0; i < getLength(); i++)
+    {
+        Node<T>* node = m_head;
 
+        for (int j = 0; j < getLength() - 1; j++)
+        {
+            if (node->info > node->next->info)
+            {
+                T temp = node->info;
+                node->info = node->next->info;
+                node->next->info = temp;
+            }
+
+            node = node->next;
+        }
+    }
 }
 
 
@@ -406,7 +276,9 @@ inline void LinkedList<T>::sort()
 template<typename T>
 inline void LinkedList<T>::initialize()
 {
-
+    m_head = nullptr;
+    m_tail = nullptr;
+    m_nodeCount = 0;
 
 }
 
@@ -424,9 +296,9 @@ inline const void LinkedList<T>::print()
 
 //Returns the anount of nodes in the list
 template<typename T>
-inline const int LinkedList<T>::getLenght()
+inline const int LinkedList<T>::getLength()
 {
-    return  m_lenght;
+    return  m_nodeCount;
 }
 
 
@@ -441,11 +313,3 @@ inline const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& otherL
 
 
 
-int main()
-{
-    LinkedList<int>* list;
-    
-
-    
-
-}
