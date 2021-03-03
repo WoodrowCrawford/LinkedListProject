@@ -201,7 +201,8 @@ inline bool LinkedList<T>::remove(const T& value)
 template<typename T>
 inline bool LinkedList<T>::getData(Iterator<T>& Iter, int index)
 {
-    return ;
+    Node<T>* iterator = nullptr;
+    return iterator->info();
 }
 
 
@@ -229,8 +230,8 @@ template<typename T>
 inline void LinkedList<T>::pushFront(const T& value)
 {
     Node<T>* node = new Node<T>(value);
-    m_head->previous = node;
-    node->next = m_head;
+    m_head.previous = node;
+    node.next = m_head;
 }
 
 
@@ -288,8 +289,11 @@ inline void LinkedList<T>::initialize()
 template<typename T>
 inline const void LinkedList<T>::print()
 {
-   
-   
+
+    for (int i = 0; i <m_nodeCount; i++)
+    {
+        std::cout << m_nodeCount;
+    }
 }
 
 

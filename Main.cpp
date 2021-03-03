@@ -4,6 +4,13 @@
 int main()
 {
 	LinkedList<int>* stuff = new LinkedList<int>();
-	return 1;
+	
+	//This creates the list
+	stuff->initialize();
+	stuff->pushFront(2);
+	stuff->pushFront(3);
+	stuff->pushFront(7);
+	stuff->pushFront(9);
+	stuff->print();
 	
 }
