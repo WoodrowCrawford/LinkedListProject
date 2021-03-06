@@ -7,7 +7,6 @@ int main()
 	
 	//This creates the list
 	stuff->initialize();
-	stuff->insert(1, 0);
 	stuff->pushFront(2);
 	stuff->pushFront(3);
 	stuff->pushFront(7);

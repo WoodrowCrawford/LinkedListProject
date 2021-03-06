@@ -231,9 +231,13 @@ inline void LinkedList<T>::pushFront(const T& value)
 {
     Node<T>* node = new Node<T>(value);
 
-    
+    node = m_head;
+    if (node != nullptr)
+    {
         m_head->previous = node;
         node->next = m_head;
+    }
+        
     
     
 }
@@ -245,8 +249,14 @@ template<typename T>
 inline void LinkedList<T>::pushBack(const T& value)
 {
     Node<T>* node = new Node<T>(value);
-    m_tail->next = node;
-    node->previous = m_tail;
+
+    node = m_tail;
+    if (node != nullptr)
+    {
+        m_tail->next = node;
+        node->previous = m_tail;
+    }
+   
 
 }
 
