@@ -10,7 +10,7 @@ template <typename T>
 class LinkedList
 {
 private:
-    Node<T* >m_head = nullptr;
+    Node<T>* m_head = nullptr;
     Node<T>* m_tail = nullptr;
     int m_nodeCount = 0;
     
@@ -230,8 +230,12 @@ template<typename T>
 inline void LinkedList<T>::pushFront(const T& value)
 {
     Node<T>* node = new Node<T>(value);
-    m_head.previous = node;
-    node.next = m_head;
+
+    
+        m_head->previous = node;
+        node->next = m_head;
+    
+    
 }
 
 
